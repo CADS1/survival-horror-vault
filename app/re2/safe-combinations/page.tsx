@@ -1,5 +1,5 @@
 import GuideLayout from "@/components/GuideLayout";
-
+import QuickFacts from "@/components/QuickFacts";
 const safes = [
 {
   name: "West Office Safe",
@@ -43,6 +43,14 @@ export default function SafeCombinationsPage() {
     backHref="/re2"
     backText="Back to Resident Evil 2"
   >
+<QuickFacts
+  facts={[
+    { label: "Area", value: "Police Station & Sewers" },
+    { label: "Safes", value: "3" },
+    { label: "Scenario", value: "All" },
+    { label: "Difficulty", value: "Easy" },
+  ]}
+/>
     <div className="space-y-6">
       {safes.map((safe) => (
         <section

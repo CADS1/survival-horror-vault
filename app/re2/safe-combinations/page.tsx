@@ -1,5 +1,15 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Resident Evil 2 Safe Combinations | Survival Horror Vault",
+  description:
+    "All Resident Evil 2 Remake safe combinations, rewards, locations, and scenario notes in one clean guide.",
+};
+
 import GuideLayout from "@/components/GuideLayout";
 import QuickFacts from "@/components/QuickFacts";
+import GuideCard from "@/components/GuideCard";
+
 const safes = [
 {
   name: "West Office Safe",
@@ -64,7 +74,7 @@ export default function SafeCombinationsPage() {
     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
       Combination
     </p>
-    <p className="mt-2 text-2xl font-bold text-red-400">
+    <p className="mt-3 rounded-lg border border-red-900 bg-zinc-950 px-4 py-4 text-center text-3xl font-black tracking-widest text-red-400">
       {safe.combination}
     </p>
   </div>
@@ -103,6 +113,52 @@ export default function SafeCombinationsPage() {
 </section>
       ))}
     </div>
+
+    <section className="mt-10 rounded-xl border border-zinc-800 bg-zinc-900 p-6">
+  <h2 className="text-2xl font-bold">
+    Scenario Differences
+  </h2>
+
+  <p className="mt-4 text-zinc-400">
+    Safe combinations are identical across all four Resident Evil 2 scenarios.
+  </p>
+
+  <div className="mt-6 grid gap-3 md:grid-cols-4">
+    {["Leon A", "Claire A", "Leon B", "Claire B"].map((scenario) => (
+      <div
+        key={scenario}
+        className="rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3 text-center text-sm font-semibold text-zinc-200"
+      >
+        ✓ {scenario}
+      </div>
+    ))}
+  </div>
+</section>
+<section className="mt-10">
+  <h2 className="text-2xl font-bold">
+    Continue Exploring
+  </h2>
+
+  <div className="mt-6 grid gap-6 md:grid-cols-3">
+    <GuideCard
+      title="Locker Codes"
+      description="Every locker code and reward."
+      href="/re2/locker-codes"
+    />
+
+    <GuideCard
+      title="Portable Safe Solutions"
+      description="Unlock every portable safe."
+      href="/re2/portable-safe-solutions"
+    />
+
+    <GuideCard
+      title="Medallion Puzzle"
+      description="Complete every medallion puzzle."
+      href="/re2/medallion-puzzle"
+    />
+  </div>
+</section>
   </GuideLayout>
     );
 }
